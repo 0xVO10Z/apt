@@ -3242,12 +3242,14 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <span>© 2025 Adnan's Property Tours. All rights reserved. Birmingham, UK.</span>
+                <span>© <span id="currentYear">2025</span> Adnan's Property Tours. All rights reserved. Birmingham, UK.</span>
                 <span>Designed with ❤️ for quality craftsmanship</span>
             </div>
         </footer>
 
         <script>
+            document.getElementById("currentYear").textContent = new Date().getFullYear();
+            
             const root = document.documentElement;
             const themeBtn = document.getElementById("themeToggle");
             const stored = localStorage.getItem("apt-theme") || "light";
