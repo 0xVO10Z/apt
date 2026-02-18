@@ -2618,6 +2618,61 @@
                     font-size: 1.1rem;
                 }
             }
+
+            .whatsapp-float {
+                position: fixed;
+                bottom: 32px;
+                right: 24px;
+                width: 60px;
+                height: 60px;
+                background: linear-gradient(135deg, #25d366, #20ba5e);
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+                cursor: pointer;
+                z-index: 100;
+                transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+                text-decoration: none;
+            }
+
+            .whatsapp-float:hover {
+                transform: scale(1.15) translateY(-4px);
+                box-shadow: 0 12px 32px rgba(37, 211, 102, 0.5);
+            }
+
+            .whatsapp-float:active {
+                transform: scale(0.95);
+            }
+
+            .whatsapp-icon {
+                font-size: 1.8rem;
+                animation: whatsappPulse 2s ease-in-out infinite;
+            }
+
+            @keyframes whatsappPulse {
+                0%,
+                100% {
+                    transform: scale(1);
+                }
+                50% {
+                    transform: scale(1.1);
+                }
+            }
+
+            @media (max-width: 768px) {
+                .whatsapp-float {
+                    bottom: 24px;
+                    right: 16px;
+                    width: 56px;
+                    height: 56px;
+                }
+
+                .whatsapp-icon {
+                    font-size: 1.6rem;
+                }
+            }
         </style>
     </head>
     <body>
@@ -3158,14 +3213,14 @@
                                 <div class="contact-detail-icon">📞</div>
                                 <div class="contact-detail-text">
                                     <strong>Phone</strong>
-                                    <span>+44 121 000 0000</span>
+                                    <span>07818410320</span>
                                 </div>
                             </div>
                             <div class="contact-detail">
                                 <div class="contact-detail-icon">✉️</div>
                                 <div class="contact-detail-text">
                                     <strong>Email</strong>
-                                    <span>hello@adnanpropertytours.co.uk</span>
+                                    <span>adnanahmedmanagement@gmail.com</span>
                                 </div>
                             </div>
                             <div class="contact-detail">
@@ -3552,5 +3607,14 @@
                 { passive: true }
             );
         </script>
+        <a
+            href="https://wa.me/447818410320"
+            class="whatsapp-float"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Chat on WhatsApp"
+        >
+            <span class="whatsapp-icon">💬</span>
+        </a>
     </body>
 </html>
