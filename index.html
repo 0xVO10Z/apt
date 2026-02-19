@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Adnan's Property Tours | Birmingham, UK</title>
         <link rel="preconnect" href="https://api.fontshare.com" />
-        <link rel="icon" type="image/png" href="logos/APTLogo.png">
+        <link rel="icon" type="image/png" href="logos/APTLogo.png" />
         <link href="https://api.fontshare.com/v2/css2?f[]=satoshi@400,500,700,800,900&display=swap" rel="stylesheet" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -291,59 +291,7 @@
                 padding: 0 24px;
                 width: 100%;
             }
-            .hero-badge {
-                display: inline-flex;
-                align-items: center;
-                gap: 8px;
-                background: rgba(200, 169, 110, 0.18);
-                border: 1px solid rgba(200, 169, 110, 0.4);
-                border-radius: 24px;
-                padding: 6px 16px;
-                font-size: 0.8rem;
-                font-weight: 600;
-                color: var(--accent);
-                letter-spacing: 0.05em;
-                text-transform: uppercase;
-                margin-bottom: 24px;
-            }
-            .hero-badge::before {
-                content: "●";
-                font-size: 0.6rem;
-                animation: pulse 2s infinite;
-            }
-            @keyframes pulse {
-                0%,
-                100% {
-                    opacity: 1;
-                }
-                50% {
-                    opacity: 0.3;
-                }
-            }
-            .hero h1 {
-                font-size: clamp(2.6rem, 6vw, 5rem);
-                font-weight: 800;
-                line-height: 1.1;
-                letter-spacing: -0.03em;
-                color: #fff;
-                margin-bottom: 24px;
-            }
-            .hero h1 em {
-                font-style: normal;
-                color: var(--accent);
-            }
-            .hero-sub {
-                font-size: clamp(1rem, 2vw, 1.2rem);
-                color: rgba(255, 255, 255, 0.78);
-                max-width: 540px;
-                margin-bottom: 40px;
-                line-height: 1.7;
-            }
-            .hero-actions {
-                display: flex;
-                gap: 16px;
-                flex-wrap: wrap;
-            }
+
             .btn-primary {
                 background: var(--accent);
                 color: #fff;
@@ -381,26 +329,6 @@
                 background: rgba(255, 255, 255, 0.12);
                 border-color: #fff;
             }
-            .hero-stats {
-                display: flex;
-                gap: 40px;
-                flex-wrap: wrap;
-                margin-top: 64px;
-                padding-top: 40px;
-                border-top: 1px solid rgba(255, 255, 255, 0.18);
-            }
-            .hero-stat-num {
-                display: block;
-                font-size: 2rem;
-                font-weight: 800;
-                color: var(--accent);
-                line-height: 1;
-            }
-            .hero-stat-label {
-                font-size: 0.8rem;
-                color: rgba(255, 255, 255, 0.65);
-                margin-top: 4px;
-            }
 
             .section-label {
                 font-size: 0.75rem;
@@ -432,51 +360,6 @@
             }
             .section-head.centered .section-desc {
                 margin: 0 auto;
-            }
-
-            #why {
-                background: var(--bg-alt);
-                transition: background 0.35s ease;
-            }
-            .why-grid {
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-                gap: 32px;
-                margin-top: 0;
-            }
-            .why-card {
-                background: var(--bg-card);
-                border: 1px solid var(--border);
-                border-radius: 20px;
-                padding: 36px 32px;
-                transition:
-                    transform 0.25s ease,
-                    box-shadow 0.25s ease;
-            }
-            .why-card:hover {
-                transform: translateY(-4px);
-                box-shadow: var(--shadow-lg);
-            }
-            .why-icon {
-                width: 56px;
-                height: 56px;
-                background: var(--accent-light);
-                border-radius: 14px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: 1.6rem;
-                margin-bottom: 20px;
-            }
-            .why-card h3 {
-                font-size: 1.1rem;
-                font-weight: 700;
-                margin-bottom: 10px;
-            }
-            .why-card p {
-                font-size: 0.9rem;
-                color: var(--text-secondary);
-                line-height: 1.7;
             }
 
             #gallery {
@@ -1598,6 +1481,1198 @@
             body.splash-active {
                 overflow: hidden;
             }
+
+            .services-masonry {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 32px;
+                margin-top: 0;
+            }
+
+            .service-card {
+                min-width: unset;
+                background: var(--bg-card);
+                border: 1px solid var(--border);
+                border-radius: 20px;
+                padding: 36px 32px;
+                transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+                position: relative;
+                overflow: hidden;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .service-card::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 4px;
+                background: linear-gradient(90deg, var(--accent), var(--accent-dark));
+                transform: scaleX(0);
+                transition: transform 0.3s;
+                transform-origin: left;
+            }
+
+            .service-card::after {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background: linear-gradient(135deg, rgba(200, 169, 110, 0.08), transparent);
+                opacity: 0;
+                transition: opacity 0.35s;
+            }
+
+            .service-card:hover {
+                transform: translateY(-8px);
+                box-shadow: 0 20px 48px rgba(0, 0, 0, 0.15);
+                border-color: var(--accent);
+            }
+
+            .service-card:hover::before {
+                transform: scaleX(1);
+            }
+
+            .service-card:hover::after {
+                opacity: 1;
+            }
+
+            .service-num {
+                font-size: 3.5rem;
+                font-weight: 900;
+                background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                line-height: 1;
+                margin-bottom: 16px;
+                letter-spacing: -0.04em;
+            }
+
+            .service-icon {
+                font-size: 2.8rem;
+                margin-bottom: 16px;
+                display: block;
+                transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+            }
+
+            .service-card:hover .service-icon {
+                transform: scale(1.15) rotate(8deg);
+            }
+
+            .service-card h3 {
+                font-size: 1.25rem;
+                font-weight: 700;
+                margin-bottom: 12px;
+                color: var(--text-primary);
+            }
+
+            .service-card p {
+                font-size: 0.95rem;
+                color: var(--text-secondary);
+                line-height: 1.7;
+                margin-bottom: 20px;
+                flex-grow: 1;
+            }
+
+            .service-features {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .service-feature {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                font-size: 0.85rem;
+                color: var(--text-secondary);
+            }
+
+            .service-feature::before {
+                content: "✓";
+                color: var(--accent);
+                font-weight: 700;
+                font-size: 1.1rem;
+            }
+
+            .testimonials-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+                gap: 32px;
+                margin-top: 0;
+            }
+
+            .testimonial-card {
+                background: var(--bg-card);
+                border: 1px solid var(--border);
+                border-radius: 20px;
+                padding: 40px 36px;
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+                position: relative;
+                overflow: hidden;
+            }
+
+            .testimonial-card::before {
+                content: "";
+                position: absolute;
+                top: -50%;
+                right: -50%;
+                width: 200px;
+                height: 200px;
+                background: radial-gradient(circle, rgba(200, 169, 110, 0.1), transparent);
+                transition: all 0.35s;
+                pointer-events: none;
+            }
+
+            .testimonial-card:hover {
+                transform: translateY(-6px);
+                box-shadow: 0 20px 48px rgba(0, 0, 0, 0.15);
+                border-color: var(--accent);
+            }
+
+            .testimonial-card:hover::before {
+                top: -30%;
+                right: -30%;
+            }
+
+            .t-stars {
+                color: var(--accent);
+                font-size: 1.3rem;
+                letter-spacing: 3px;
+                font-weight: 700;
+            }
+
+            .t-text {
+                font-size: 1.05rem;
+                line-height: 1.8;
+                color: var(--text-primary);
+                font-style: italic;
+            }
+
+            .t-text::before {
+                content: "\201C";
+                font-size: 2.8rem;
+                color: var(--accent);
+                line-height: 0;
+                vertical-align: -0.4em;
+                margin-right: 6px;
+                opacity: 0.6;
+            }
+
+            .t-author {
+                display: flex;
+                align-items: center;
+                gap: 14px;
+                padding-top: 16px;
+                border-top: 1px solid var(--border);
+            }
+
+            .t-avatar {
+                width: 56px;
+                height: 56px;
+                border-radius: 50%;
+                background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 1.4rem;
+                font-weight: 700;
+                color: #fff;
+                border: 3px solid var(--accent-light);
+                flex-shrink: 0;
+                transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+            }
+
+            .testimonial-card:hover .t-avatar {
+                transform: scale(1.1) rotate(-5deg);
+            }
+
+            .t-name {
+                font-weight: 700;
+                font-size: 0.98rem;
+                color: var(--text-primary);
+            }
+
+            .t-role {
+                font-size: 0.82rem;
+                color: var(--text-secondary);
+                margin-top: 2px;
+            }
+
+            .t-property {
+                display: inline-flex;
+                align-items: center;
+                gap: 6px;
+                background: var(--tag-bg);
+                color: var(--accent);
+                font-size: 0.78rem;
+                font-weight: 600;
+                padding: 4px 12px;
+                border-radius: 20px;
+                margin-top: 6px;
+            }
+
+            .slider-wrapper,
+            .slider-track,
+            .testimonial-slide,
+            .services-slider-wrapper,
+            .services-track-outer,
+            .services-track,
+            .slider-controls,
+            .slider-btn,
+            .slider-dots,
+            .dot,
+            .services-nav,
+            .services-dot,
+            .services-arrows {
+                display: none !important;
+            }
+
+            @media (max-width: 768px) {
+                .services-masonry {
+                    grid-template-columns: 1fr;
+                    gap: 24px;
+                }
+
+                .testimonials-grid {
+                    grid-template-columns: 1fr;
+                    gap: 24px;
+                }
+
+                .service-card {
+                    padding: 28px 24px;
+                }
+
+                .testimonial-card {
+                    padding: 32px 28px;
+                }
+
+                .service-num {
+                    font-size: 2.5rem;
+                }
+
+                .service-icon {
+                    font-size: 2.2rem;
+                }
+
+                .t-text {
+                    font-size: 1rem;
+                }
+            }
+
+            #why {
+                background: var(--bg-alt);
+                transition: background 0.35s ease;
+                position: relative;
+                overflow: hidden;
+            }
+
+            #why::before {
+                content: "";
+                position: absolute;
+                top: -50%;
+                right: -10%;
+                width: 500px;
+                height: 500px;
+                background: radial-gradient(circle, rgba(200, 169, 110, 0.08), transparent);
+                border-radius: 50%;
+                pointer-events: none;
+            }
+
+            #why::after {
+                content: "";
+                position: absolute;
+                bottom: -30%;
+                left: -15%;
+                width: 450px;
+                height: 450px;
+                background: radial-gradient(circle, rgba(200, 169, 110, 0.06), transparent);
+                border-radius: 50%;
+                pointer-events: none;
+            }
+
+            .why-grid-new {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+                gap: 24px;
+                margin-top: 48px;
+                position: relative;
+                z-index: 1;
+            }
+
+            .why-card-new {
+                background: var(--bg-card);
+                border: 1.5px solid var(--border);
+                border-radius: 24px;
+                padding: 32px 28px;
+                transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+                position: relative;
+                overflow: hidden;
+                display: flex;
+                flex-direction: column;
+                min-height: 280px;
+            }
+
+            .why-card-new::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 3px;
+                background: linear-gradient(90deg, var(--accent), transparent);
+                transform: scaleX(0);
+                transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+                transform-origin: left;
+            }
+
+            .why-card-new::after {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background: linear-gradient(135deg, rgba(200, 169, 110, 0.05), transparent);
+                opacity: 0;
+                transition: opacity 0.35s;
+                pointer-events: none;
+            }
+
+            .why-card-new:hover {
+                transform: translateY(-8px) scale(1.02);
+                box-shadow: 0 24px 48px rgba(0, 0, 0, 0.12);
+                border-color: var(--accent);
+            }
+
+            .why-card-new:hover::before {
+                transform: scaleX(1);
+            }
+
+            .why-card-new:hover::after {
+                opacity: 1;
+            }
+
+            .why-card-large {
+                grid-column: span 1;
+                min-height: 320px;
+                background: linear-gradient(135deg, var(--bg-card) 0%, rgba(200, 169, 110, 0.05) 100%);
+            }
+
+            .why-card-header {
+                display: flex;
+                align-items: flex-start;
+                gap: 14px;
+                margin-bottom: 16px;
+            }
+
+            .why-icon {
+                width: 48px;
+                height: 48px;
+                background: var(--accent-light);
+                border-radius: 12px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 1.6rem;
+                flex-shrink: 0;
+                transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+            }
+
+            .why-icon-large {
+                width: 64px;
+                height: 64px;
+                background: linear-gradient(135deg, var(--accent-light), rgba(200, 169, 110, 0.15));
+                border-radius: 16px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 2rem;
+                flex-shrink: 0;
+                transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+                border: 2px solid rgba(200, 169, 110, 0.2);
+            }
+
+            .why-card-new:hover .why-icon {
+                transform: translateY(-4px) scale(1.12);
+                background: var(--accent);
+                color: #fff;
+            }
+
+            .why-card-new:hover .why-icon-large {
+                transform: translateY(-4px) scale(1.1);
+                background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+                border-color: var(--accent);
+                color: #fff;
+            }
+
+            .why-card-new h3 {
+                font-size: 1.15rem;
+                font-weight: 700;
+                color: var(--text-primary);
+                line-height: 1.3;
+            }
+
+            .why-card-new p {
+                font-size: 0.9rem;
+                color: var(--text-secondary);
+                line-height: 1.7;
+                margin-top: 12px;
+                margin-bottom: auto;
+            }
+
+            .why-badge {
+                display: inline-flex;
+                align-items: center;
+                gap: 6px;
+                background: linear-gradient(135deg, var(--accent-light), rgba(200, 169, 110, 0.12));
+                color: var(--accent);
+                font-size: 0.75rem;
+                font-weight: 700;
+                padding: 6px 14px;
+                border-radius: 20px;
+                margin-top: 16px;
+                border: 1px solid rgba(200, 169, 110, 0.3);
+                letter-spacing: 0.05em;
+                text-transform: uppercase;
+            }
+
+            .why-stat {
+                display: flex;
+                align-items: baseline;
+                gap: 8px;
+                margin-top: 20px;
+                padding-top: 20px;
+                border-top: 1px solid var(--border);
+            }
+
+            .why-stat-num {
+                font-size: 2rem;
+                font-weight: 800;
+                background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                line-height: 1;
+            }
+
+            .why-stat-label {
+                font-size: 0.82rem;
+                color: var(--text-secondary);
+                font-weight: 600;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+            }
+
+            .why-cta-section {
+                margin-top: 80px;
+                background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+                border-radius: 28px;
+                padding: 52px 48px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 32px;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .why-cta-section::before {
+                content: "";
+                position: absolute;
+                top: -50%;
+                right: -10%;
+                width: 400px;
+                height: 400px;
+                background: radial-gradient(circle, rgba(255, 255, 255, 0.1), transparent);
+                border-radius: 50%;
+                pointer-events: none;
+            }
+
+            .why-cta-content {
+                position: relative;
+                z-index: 1;
+                flex: 1;
+            }
+
+            .why-cta-content h3 {
+                font-size: 1.8rem;
+                font-weight: 800;
+                color: #fff;
+                margin-bottom: 10px;
+                letter-spacing: -0.02em;
+            }
+
+            .why-cta-content p {
+                font-size: 1.05rem;
+                color: rgba(255, 255, 255, 0.9);
+                line-height: 1.6;
+            }
+
+            .why-cta-section .btn-primary {
+                background: #fff;
+                color: var(--accent);
+                position: relative;
+                z-index: 1;
+                padding: 14px 40px;
+                font-weight: 700;
+                font-size: 0.95rem;
+                flex-shrink: 0;
+            }
+
+            .why-cta-section .btn-primary:hover {
+                background: rgba(255, 255, 255, 0.95);
+                box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+            }
+
+            @media (max-width: 1024px) {
+                .why-grid-new {
+                    grid-template-columns: repeat(2, 1fr);
+                    gap: 20px;
+                }
+
+                .why-card-new {
+                    min-height: 260px;
+                    padding: 28px 24px;
+                }
+
+                .why-cta-section {
+                    flex-direction: column;
+                    padding: 40px 32px;
+                    text-align: center;
+                }
+
+                .why-cta-content h3 {
+                    font-size: 1.5rem;
+                }
+            }
+
+            @media (max-width: 768px) {
+                #why::before,
+                #why::after {
+                    display: none;
+                }
+
+                .why-grid-new {
+                    grid-template-columns: 1fr;
+                    gap: 18px;
+                }
+
+                .why-card-new {
+                    min-height: auto;
+                    padding: 24px 20px;
+                }
+
+                .why-card-large {
+                    min-height: auto;
+                }
+
+                .why-icon-large {
+                    width: 52px;
+                    height: 52px;
+                    font-size: 1.6rem;
+                }
+
+                .why-cta-section {
+                    padding: 32px 24px;
+                    border-radius: 20px;
+                    margin-top: 60px;
+                }
+
+                .why-cta-content h3 {
+                    font-size: 1.3rem;
+                }
+
+                .why-cta-content p {
+                    font-size: 0.95rem;
+                }
+            }
+
+            .hero {
+                min-height: 100vh;
+                padding: 0;
+                position: relative;
+                overflow: hidden;
+                display: flex;
+                align-items: center;
+            }
+
+            .hero-bg {
+                position: absolute;
+                inset: 0;
+                background: url("https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1600&auto=format&fit=crop")
+                    center/cover no-repeat;
+                animation: heroZoom 1.2s cubic-bezier(0.22, 1, 0.36, 1) 2.2s forwards;
+            }
+
+            @keyframes heroZoom {
+                from {
+                    transform: scale(1.08);
+                }
+                to {
+                    transform: scale(1);
+                }
+            }
+
+            .hero-overlay {
+                position: absolute;
+                inset: 0;
+                background: var(--hero-overlay);
+                transition: background 0.35s ease;
+            }
+
+            .hero-content {
+                position: relative;
+                z-index: 2;
+                max-width: 1180px;
+                margin: 0 auto;
+                padding: 0 24px;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .hero-badge {
+                display: inline-flex;
+                align-items: center;
+                gap: 10px;
+                background: rgba(200, 169, 110, 0.18);
+                border: 1.5px solid rgba(200, 169, 110, 0.4);
+                border-radius: 32px;
+                padding: 8px 20px;
+                font-size: 0.82rem;
+                font-weight: 600;
+                color: var(--accent);
+                letter-spacing: 0.06em;
+                text-transform: uppercase;
+                margin-bottom: 32px;
+                width: fit-content;
+                backdrop-filter: blur(10px);
+            }
+
+            .badge-dot {
+                display: inline-block;
+                width: 8px;
+                height: 8px;
+                background: var(--accent);
+                border-radius: 50%;
+                animation: pulse 2s infinite;
+            }
+
+            .hero-title {
+                font-size: clamp(3rem, 7vw, 5.5rem);
+                font-weight: 900;
+                line-height: 1.05;
+                letter-spacing: -0.04em;
+                color: #fff;
+                margin-bottom: 28px;
+                text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            }
+
+            .hero-title em {
+                font-style: normal;
+                background: linear-gradient(135deg, var(--accent), #f0c68e);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                position: relative;
+                display: inline-block;
+            }
+
+            .hero-title em::after {
+                content: "";
+                position: absolute;
+                bottom: -8px;
+                left: 0;
+                right: 0;
+                height: 4px;
+                background: linear-gradient(90deg, var(--accent), transparent);
+                border-radius: 2px;
+            }
+
+            .hero-sub {
+                font-size: clamp(1.05rem, 2vw, 1.25rem);
+                color: rgba(255, 255, 255, 0.85);
+                max-width: 600px;
+                margin-bottom: 48px;
+                line-height: 1.75;
+                text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            }
+
+            .hero-actions {
+                display: flex;
+                gap: 16px;
+                flex-wrap: wrap;
+                margin-bottom: 64px;
+            }
+
+            .btn-lg {
+                padding: 16px 36px;
+                font-size: 1rem;
+                border-radius: 14px;
+                font-weight: 700;
+                letter-spacing: 0.02em;
+                transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+                position: relative;
+                overflow: hidden;
+            }
+
+            .btn-lg span {
+                position: relative;
+                z-index: 2;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
+
+            .btn-primary.btn-lg {
+                background: var(--accent);
+                color: #fff;
+                border: 2px solid var(--accent);
+                box-shadow: 0 8px 24px rgba(200, 169, 110, 0.35);
+            }
+
+            .btn-primary.btn-lg::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background: var(--accent-dark);
+                transform: translateX(-100%);
+                transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+                z-index: 1;
+            }
+
+            .btn-primary.btn-lg:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 12px 32px rgba(200, 169, 110, 0.45);
+            }
+
+            .btn-primary.btn-lg:hover::before {
+                transform: translateX(0);
+            }
+
+            .btn-outline.btn-lg {
+                background: rgba(255, 255, 255, 0.12);
+                color: #fff;
+                border: 2px solid rgba(255, 255, 255, 0.4);
+                backdrop-filter: blur(10px);
+            }
+
+            .btn-outline.btn-lg::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background: rgba(255, 255, 255, 0.18);
+                transform: scaleX(0);
+                transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+                transform-origin: left;
+                z-index: 1;
+            }
+
+            .btn-outline.btn-lg:hover {
+                border-color: #fff;
+                background: rgba(255, 255, 255, 0.18);
+                transform: translateY(-3px);
+                box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+            }
+
+            .btn-outline.btn-lg:hover::before {
+                transform: scaleX(1);
+            }
+
+            .hero-stats {
+                display: flex;
+                align-items: center;
+                gap: 0;
+                flex-wrap: wrap;
+                padding-top: 40px;
+                border-top: 1px solid rgba(255, 255, 255, 0.15);
+                margin-top: auto;
+                padding-bottom: 60px;
+            }
+
+            .hero-stat-item {
+                flex: 1;
+                min-width: 140px;
+                padding: 0 20px;
+            }
+
+            .hero-stat-num {
+                display: block;
+                font-size: clamp(1.8rem, 4vw, 2.2rem);
+                font-weight: 900;
+                color: var(--accent);
+                line-height: 1;
+                margin-bottom: 6px;
+                letter-spacing: -0.03em;
+            }
+
+            .hero-stat-label {
+                font-size: 0.82rem;
+                color: rgba(255, 255, 255, 0.7);
+                font-weight: 600;
+                letter-spacing: 0.04em;
+                text-transform: uppercase;
+                line-height: 1.4;
+            }
+
+            .hero-stat-divider {
+                width: 1px;
+                height: 50px;
+                background: rgba(255, 255, 255, 0.15);
+                margin: 0 10px;
+            }
+
+            .hero-stat-divider:last-of-type {
+                display: none;
+            }
+
+            .hero-scroll-indicator {
+                position: absolute;
+                bottom: 32px;
+                left: 50%;
+                transform: translateX(-50%);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 8px;
+                color: rgba(255, 255, 255, 0.6);
+                font-size: 0.82rem;
+                font-weight: 600;
+                letter-spacing: 0.05em;
+                text-transform: uppercase;
+                animation: scrollBounce 2s ease-in-out infinite;
+                z-index: 3;
+            }
+
+            .scroll-arrow {
+                font-size: 1.4rem;
+                animation: arrowBounce 2s ease-in-out infinite;
+                display: block;
+            }
+
+            @keyframes scrollBounce {
+                0%,
+                100% {
+                    opacity: 0.6;
+                }
+                50% {
+                    opacity: 1;
+                }
+            }
+
+            @keyframes arrowBounce {
+                0%,
+                100% {
+                    transform: translateY(0);
+                }
+                50% {
+                    transform: translateY(8px);
+                }
+            }
+
+            .fade-in-badge {
+                opacity: 0;
+                animation: fadeInUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.3s forwards;
+            }
+
+            .fade-in-title {
+                opacity: 0;
+                animation: fadeInUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.5s forwards;
+            }
+
+            .fade-in-sub {
+                opacity: 0;
+                animation: fadeInUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.7s forwards;
+            }
+
+            .fade-in-actions {
+                opacity: 0;
+                animation: fadeInUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.9s forwards;
+            }
+
+            .fade-in-stats {
+                opacity: 0;
+                animation: fadeInUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) 1.1s forwards;
+            }
+
+            .fade-in-scroll {
+                opacity: 0;
+                animation: fadeIn 1s ease 2.5s forwards;
+            }
+
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(32px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                }
+                to {
+                    opacity: 1;
+                }
+            }
+
+            @media (max-width: 768px) {
+                .hero-title {
+                    margin-bottom: 24px;
+                }
+
+                .hero-sub {
+                    margin-bottom: 40px;
+                    font-size: 1.05rem;
+                }
+
+                .hero-actions {
+                    flex-direction: column;
+                    gap: 12px;
+                    margin-bottom: 48px;
+                }
+
+                .btn-lg {
+                    width: 100%;
+                    padding: 15px 32px;
+                    font-size: 0.95rem;
+                }
+
+                .hero-stats {
+                    flex-direction: column;
+                    gap: 24px;
+                    padding-top: 32px;
+                    padding-bottom: 40px;
+                }
+
+                .hero-stat-item {
+                    width: 100%;
+                    padding: 0;
+                    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+                    padding-bottom: 20px;
+                }
+
+                .hero-stat-item:last-child {
+                    border-bottom: none;
+                    padding-bottom: 0;
+                }
+
+                .hero-stat-divider {
+                    display: none;
+                }
+
+                .hero-scroll-indicator {
+                    font-size: 0.75rem;
+                }
+            }
+
+            @media (max-width: 480px) {
+                .hero-title {
+                    font-size: 2.2rem;
+                }
+
+                .hero-sub {
+                    font-size: 0.95rem;
+                    margin-bottom: 32px;
+                }
+
+                .btn-lg {
+                    padding: 13px 28px;
+                    font-size: 0.9rem;
+                }
+
+                .btn-lg span {
+                    gap: 6px;
+                }
+
+                .hero-badge {
+                    font-size: 0.75rem;
+                    padding: 6px 16px;
+                }
+
+                .hero-scroll-indicator {
+                    bottom: 24px;
+                }
+            }
+
+            .gallery-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 24px;
+                margin-top: 0;
+            }
+
+            .trade-card {
+                grid-column: span 1 !important;
+                grid-row: span 1 !important;
+                background: var(--bg-card);
+                border: 1.5px solid var(--border);
+                border-radius: 20px;
+                padding: 36px 28px;
+                cursor: pointer;
+                transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+                position: relative;
+                overflow: hidden;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .trade-card::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 3px;
+                background: linear-gradient(90deg, var(--accent), var(--accent-dark));
+                transform: scaleX(0);
+                transition: transform 0.3s;
+                transform-origin: left;
+            }
+
+            .trade-card::after {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background: linear-gradient(135deg, rgba(200, 169, 110, 0.08), transparent);
+                opacity: 0;
+                transition: opacity 0.35s;
+            }
+
+            .trade-card:hover {
+                transform: translateY(-8px) scale(1.02);
+                box-shadow: 0 20px 48px rgba(0, 0, 0, 0.15);
+                border-color: var(--accent);
+            }
+
+            .trade-card:hover::before {
+                transform: scaleX(1);
+            }
+
+            .trade-card:hover::after {
+                opacity: 1;
+            }
+
+            .trade-icon {
+                font-size: 2.8rem;
+                margin-bottom: 16px;
+                display: block;
+                transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+            }
+
+            .trade-card:hover .trade-icon {
+                transform: scale(1.2) rotate(8deg);
+            }
+
+            .trade-content h3 {
+                font-size: 1.25rem;
+                font-weight: 700;
+                color: var(--text-primary);
+                margin-bottom: 8px;
+            }
+
+            .trade-content p {
+                font-size: 0.9rem;
+                color: var(--text-secondary);
+                line-height: 1.6;
+                margin-bottom: 12px;
+            }
+
+            .trade-count {
+                display: inline-flex;
+                align-items: center;
+                gap: 6px;
+                background: var(--accent-light);
+                color: var(--accent);
+                font-size: 0.78rem;
+                font-weight: 700;
+                padding: 4px 12px;
+                border-radius: 20px;
+                letter-spacing: 0.03em;
+                margin-top: auto;
+            }
+
+            @media (max-width: 768px) {
+                .gallery-grid {
+                    grid-template-columns: 1fr;
+                    gap: 18px;
+                }
+
+                .trade-card {
+                    padding: 28px 24px;
+                }
+
+                .trade-icon {
+                    font-size: 2.2rem;
+                }
+
+                .trade-content h3 {
+                    font-size: 1.1rem;
+                }
+            }
+
+            .whatsapp-float {
+                position: fixed;
+                bottom: 32px;
+                right: 24px;
+                width: 60px;
+                height: 60px;
+                background: linear-gradient(135deg, #25d366, #20ba5e);
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+                cursor: pointer;
+                z-index: 100;
+                transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+                text-decoration: none;
+            }
+
+            .whatsapp-float:hover {
+                transform: scale(1.15) translateY(-4px);
+                box-shadow: 0 12px 32px rgba(37, 211, 102, 0.5);
+            }
+
+            .whatsapp-float:active {
+                transform: scale(0.95);
+            }
+
+            .whatsapp-icon {
+                font-size: 1.8rem;
+                animation: whatsappPulse 2s ease-in-out infinite;
+            }
+
+            @keyframes whatsappPulse {
+                0%,
+                100% {
+                    transform: scale(1);
+                }
+                50% {
+                    transform: scale(1.1);
+                }
+            }
+
+            @media (max-width: 768px) {
+                .whatsapp-float {
+                    bottom: 24px;
+                    right: 16px;
+                    width: 56px;
+                    height: 56px;
+                }
+
+                .whatsapp-icon {
+                    font-size: 1.6rem;
+                }
+            }
         </style>
     </head>
     <body>
@@ -1657,43 +2732,55 @@
             <div class="hero-bg"></div>
             <div class="hero-overlay"></div>
             <div class="hero-content">
-                <div class="hero-badge">Birmingham, UK &nbsp;·&nbsp; Trusted Contractor</div>
-                <h1>Your Property,<br /><em>Our Expertise.</em></h1>
-                <p class="hero-sub">
-                    Adnan's Property Tours delivers top-tier property contracting services across Birmingham.
-                    Reliability, quality, and complete peace of mind — guaranteed.
+                <div class="hero-badge fade-in-badge">
+                    <span class="badge-dot"></span>
+                    Birmingham, UK &nbsp;·&nbsp; Trusted Trades Network
+                </div>
+                <h1 class="hero-title fade-in-title">Find Quality Trades<br /><em>When You Need Them</em></h1>
+                <p class="hero-sub fade-in-sub">
+                    Access a curated network of vetted electricians, plumbers, builders, decorators and more. Quality
+                    workmanship, transparent pricing, and complete peace of mind — guaranteed.
                 </p>
-                <div class="hero-actions">
+                <div class="hero-actions fade-in-actions">
                     <button
-                        class="btn-primary"
+                        class="btn-primary btn-lg"
                         onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})"
                     >
-                        &#128205; Book a Free Tour
+                        <span>🔍 Find a Tradesperson</span>
                     </button>
                     <button
-                        class="btn-outline"
-                        onclick="document.getElementById('gallery').scrollIntoView({behavior:'smooth'})"
+                        class="btn-outline btn-lg"
+                        onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})"
                     >
-                        &#128247; View Our Work
+                        <span>📋 View All Trades</span>
                     </button>
                 </div>
-                <div class="hero-stats">
-                    <div>
-                        <span class="hero-stat-num">250+</span>
-                        <div class="hero-stat-label">Projects Completed</div>
+
+                <div class="hero-stats fade-in-stats">
+                    <div class="hero-stat-item">
+                        <div class="hero-stat-num">500+</div>
+                        <div class="hero-stat-label">Vetted Tradespeople</div>
                     </div>
-                    <div>
-                        <span class="hero-stat-num">8 Yrs</span>
-                        <div class="hero-stat-label">Industry Experience</div>
+                    <div class="hero-stat-divider"></div>
+                    <div class="hero-stat-item">
+                        <div class="hero-stat-num">25+</div>
+                        <div class="hero-stat-label">Trade Categories</div>
                     </div>
-                    <div>
-                        <span class="hero-stat-num">98%</span>
-                        <div class="hero-stat-label">Client Satisfaction</div>
+                    <div class="hero-stat-divider"></div>
+                    <div class="hero-stat-item">
+                        <div class="hero-stat-num">10K+</div>
+                        <div class="hero-stat-label">Happy Clients</div>
                     </div>
-                    <div>
-                        <span class="hero-stat-num">5★</span>
+                    <div class="hero-stat-divider"></div>
+                    <div class="hero-stat-item">
+                        <div class="hero-stat-num">5★</div>
                         <div class="hero-stat-label">Average Rating</div>
                     </div>
+                </div>
+
+                <div class="hero-scroll-indicator fade-in-scroll">
+                    <span>Scroll to explore</span>
+                    <div class="scroll-arrow">↓</div>
                 </div>
             </div>
         </section>
@@ -1702,45 +2789,79 @@
             <div class="container">
                 <div class="section-head">
                     <div class="section-label fade-left">Why Choose Us</div>
-                    <h2 class="section-title fade-left">Built on Trust,<br />Delivered with Care</h2>
+                    <h2 class="section-title fade-left">The Smarter Way<br />To Find Trades</h2>
                     <p class="section-desc fade-left">
-                        We don't just complete properties — we build lasting relationships with every client across
-                        Birmingham and beyond.
+                        We've done the hard work of vetting and verifying. You get instant access to reliable,
+                        professional tradespeople without the hassle.
                     </p>
                 </div>
-                <div class="why-grid">
-                    <div class="why-card fade-up">
-                        <div class="why-icon">🏆</div>
-                        <h3>Top Quality Finish</h3>
+                <div class="why-grid-new">
+                    <div class="why-card-new fade-up why-card-large">
+                        <div class="why-card-header">
+                            <div class="why-icon-large">✓</div>
+                            <h3>Fully Vetted Professionals</h3>
+                        </div>
                         <p>
-                            Every project is treated as if it were our own home. We use only premium materials and
-                            proven techniques to ensure a flawless finish every time.
+                            Every tradesperson on our network is verified, insured, and certified. We handle the
+                            background checks so you don't have to.
                         </p>
+                        <div class="why-stat">
+                            <span class="why-stat-num">500+</span>
+                            <span class="why-stat-label">Verified Trades</span>
+                        </div>
                     </div>
-                    <div class="why-card fade-up">
-                        <div class="why-icon">🛡️</div>
-                        <h3>Fully Insured & Certified</h3>
+
+                    <div class="why-card-new fade-up">
+                        <div class="why-card-header">
+                            <div class="why-icon">⚡</div>
+                            <h3>Instant Connections</h3>
+                        </div>
                         <p>
-                            Complete peace of mind from start to finish. Adnan's team is fully insured, certified, and
-                            compliant with all UK building regulations.
+                            Get matched with the right professional in minutes, not weeks. Quick response times and
+                            available appointments.
                         </p>
+                        <div class="why-badge">Same-Day Response</div>
                     </div>
-                    <div class="why-card fade-up">
-                        <div class="why-icon">⏱️</div>
-                        <h3>Always On Schedule</h3>
+
+                    <div class="why-card-new fade-up">
+                        <div class="why-card-header">
+                            <div class="why-icon">💷</div>
+                            <h3>Transparent Pricing</h3>
+                        </div>
                         <p>
-                            We respect your time. Every project is planned meticulously so that deadlines are met
-                            without compromise to quality or safety.
+                            No hidden fees, no surprises. Clear pricing upfront so you know exactly what you're paying
+                            before any work begins.
                         </p>
+                        <div class="why-badge">Fixed Quotes</div>
                     </div>
-                    <div class="why-card fade-up">
-                        <div class="why-icon">💬</div>
-                        <h3>Transparent Communication</h3>
+
+                    <div class="why-card-new fade-up why-card-large">
+                        <div class="why-card-header">
+                            <div class="why-icon-large">🛡️</div>
+                            <h3>Protected Every Step</h3>
+                        </div>
                         <p>
-                            You're kept informed at every stage. No hidden fees, no surprises — just honest, clear
-                            updates from consultation to completion.
+                            Complete protection with our guarantee. If you're not satisfied, we'll make it right. Your
+                            peace of mind is our priority.
                         </p>
+                        <div class="why-stat">
+                            <span class="why-stat-num">98%</span>
+                            <span class="why-stat-label">Satisfaction Rate</span>
+                        </div>
                     </div>
+                </div>
+
+                <div class="why-cta-section fade-up">
+                    <div class="why-cta-content">
+                        <h3>Ready to Find Your Tradesperson?</h3>
+                        <p>Browse our network or tell us what you need — we'll find the perfect match.</p>
+                    </div>
+                    <button
+                        class="btn-primary"
+                        onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})"
+                    >
+                        Get Started Now
+                    </button>
                 </div>
             </div>
         </section>
@@ -1748,67 +2869,61 @@
         <section id="gallery">
             <div class="container">
                 <div class="section-head">
-                    <div class="section-label fade-left">Completed Projects</div>
-                    <h2 class="section-title fade-left">Work That Speaks<br />For Itself</h2>
+                    <div class="section-label fade-left">Popular Categories</div>
+                    <h2 class="section-title fade-left">Browse by Trade<br />Type</h2>
                     <p class="section-desc fade-left">
-                        A showcase of properties we've transformed across Birmingham — from full renovations to stunning
-                        new builds.
+                        From emergency repairs to major projects, find the exact trade you need. All our professionals
+                        are fully vetted and ready to help.
                     </p>
                 </div>
                 <div class="gallery-grid">
-                    <div class="gallery-item fade-up">
-                        <span class="gallery-tag">Full Renovation</span>
-                        <img
-                            src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=900&auto=format&fit=crop"
-                            alt="Renovated home exterior"
-                            loading="lazy"
-                        />
-                        <div class="gallery-overlay"><span>Edgbaston — Full Renovation</span></div>
+                    <div class="gallery-item fade-up trade-card">
+                        <div class="trade-icon">⚡</div>
+                        <div class="trade-content">
+                            <h3>Electricians</h3>
+                            <p>Rewires, installations, repairs & testing</p>
+                            <span class="trade-count">48 available</span>
+                        </div>
                     </div>
-                    <div class="gallery-item fade-up">
-                        <span class="gallery-tag">New Build</span>
-                        <img
-                            src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=700&auto=format&fit=crop"
-                            alt="New build property"
-                            loading="lazy"
-                        />
-                        <div class="gallery-overlay"><span>Harborne — New Build</span></div>
+                    <div class="gallery-item fade-up trade-card">
+                        <div class="trade-icon">🔧</div>
+                        <div class="trade-content">
+                            <h3>Plumbers</h3>
+                            <p>Heating, drainage, installations & maintenance</p>
+                            <span class="trade-count">52 available</span>
+                        </div>
                     </div>
-                    <div class="gallery-item fade-up">
-                        <span class="gallery-tag">Interior</span>
-                        <img
-                            src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=700&auto=format&fit=crop"
-                            alt="Modern kitchen interior"
-                            loading="lazy"
-                        />
-                        <div class="gallery-overlay"><span>Moseley — Kitchen Remodel</span></div>
+                    <div class="gallery-item fade-up trade-card">
+                        <div class="trade-icon">🏗️</div>
+                        <div class="trade-content">
+                            <h3>Builders</h3>
+                            <p>Extensions, renovations, structural work</p>
+                            <span class="trade-count">36 available</span>
+                        </div>
                     </div>
-                    <div class="gallery-item fade-up">
-                        <span class="gallery-tag">Extension</span>
-                        <img
-                            src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=700&auto=format&fit=crop"
-                            alt="House extension"
-                            loading="lazy"
-                        />
-                        <div class="gallery-overlay"><span>Solihull — Rear Extension</span></div>
+                    <div class="gallery-item fade-up trade-card">
+                        <div class="trade-icon">🎨</div>
+                        <div class="trade-content">
+                            <h3>Decorators & Painters</h3>
+                            <p>Interior & exterior, wallpapering, plastering</p>
+                            <span class="trade-count">44 available</span>
+                        </div>
                     </div>
-                    <div class="gallery-item fade-up">
-                        <span class="gallery-tag">Loft Conversion</span>
-                        <img
-                            src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&auto=format&fit=crop"
-                            alt="Loft conversion"
-                            loading="lazy"
-                        />
-                        <div class="gallery-overlay"><span>Sutton Coldfield — Loft</span></div>
+                    <div class="gallery-item fade-up trade-card">
+                        <div class="trade-icon">🪟</div>
+                        <div class="trade-content">
+                            <h3>Windows & Doors</h3>
+                            <p>Installation, repair, replacements</p>
+                            <span class="trade-count">28 available</span>
+                        </div>
                     </div>
-                    <div class="gallery-item fade-up">
-                        <span class="gallery-tag">Landscaping</span>
-                        <img
-                            src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=700&auto=format&fit=crop"
-                            alt="Garden landscaping"
-                            loading="lazy"
-                        />
-                        <div class="gallery-overlay"><span>Kings Heath — Landscaping</span></div>
+                    <div class="gallery-item fade-up trade-card">
+                        <div class="trade-icon">🌿</div>
+                        <div class="trade-content">
+                            <h3>Landscapers & Gardeners</h3>
+                            <p>Design, landscaping, maintenance & paving</p>
+                            <span class="trade-count">32 available</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1817,116 +2932,109 @@
         <section id="testimonials">
             <div class="container">
                 <div class="section-head centered">
-                    <div class="section-label fade-up">How It Works</div>
-                    <h2 class="section-title fade-up">Simple, Stress-Free Process</h2>
+                    <div class="section-label fade-up">Client Reviews</div>
+                    <h2 class="section-title fade-up">What Our Customers Say</h2>
                     <p class="section-desc fade-up">
-                        Don't just take our word for it — here's what homeowners across Birmingham have to say about
-                        working with Adnan.
+                        Real feedback from homeowners who've used our network. These are actual experiences from
+                        verified customers.
                     </p>
                 </div>
-                <div class="slider-wrapper">
-                    <div class="slider-track" id="testimonialTrack">
-                        <div class="testimonial-slide">
-                            <div class="testimonial-card">
-                                <div class="t-stars">★★★★★</div>
-                                <p class="t-text">
-                                    Adnan and his team completely transformed our home. From the initial consultation to
-                                    the final walkthrough, every single detail was handled with professionalism and
-                                    care. The quality of finish is outstanding — we couldn't be happier.
-                                </p>
-                                <div class="t-author">
-                                    <div class="t-avatar">SK</div>
-                                    <div>
-                                        <div class="t-name">Sarah K.</div>
-                                        <div class="t-role">Homeowner, Edgbaston</div>
-                                        <div class="t-property">🏠 Full Renovation</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="testimonial-slide">
-                            <div class="testimonial-card">
-                                <div class="t-stars">★★★★★</div>
-                                <p class="t-text">
-                                    I've used several contractors over the years but Adnan's team is on a completely
-                                    different level. They were punctual, tidy, and the communication throughout was
-                                    superb. Our kitchen extension was finished ahead of schedule and looks incredible.
-                                </p>
-                                <div class="t-author">
-                                    <div class="t-avatar">MR</div>
-                                    <div>
-                                        <div class="t-name">Mohammed R.</div>
-                                        <div class="t-role">Property Investor, Handsworth</div>
-                                        <div class="t-property">🔨 Kitchen Extension</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="testimonial-slide">
-                            <div class="testimonial-card">
-                                <div class="t-stars">★★★★★</div>
-                                <p class="t-text">
-                                    We were nervous about our loft conversion — it's a big job. But Adnan walked us
-                                    through everything step by step. The team was respectful of our home, kept
-                                    disruption to a minimum, and the result is absolutely stunning. Best decision we
-                                    ever made.
-                                </p>
-                                <div class="t-author">
-                                    <div class="t-avatar">JP</div>
-                                    <div>
-                                        <div class="t-name">James & Priya T.</div>
-                                        <div class="t-role">Homeowners, Sutton Coldfield</div>
-                                        <div class="t-property">🏗️ Loft Conversion</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="testimonial-slide">
-                            <div class="testimonial-card">
-                                <div class="t-stars">★★★★★</div>
-                                <p class="t-text">
-                                    Reliable, honest, and incredibly skilled. Adnan provided a detailed quote with no
-                                    hidden costs and delivered exactly what was promised. I've already recommended him
-                                    to three of my neighbours and they've all had equally brilliant experiences.
-                                </p>
-                                <div class="t-author">
-                                    <div class="t-avatar">LB</div>
-                                    <div>
-                                        <div class="t-name">Linda B.</div>
-                                        <div class="t-role">Landlord, Moseley</div>
-                                        <div class="t-property">🏡 Full Refurbishment</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="testimonial-slide">
-                            <div class="testimonial-card">
-                                <div class="t-stars">★★★★★</div>
-                                <p class="t-text">
-                                    From demolition to the finishing touches on our new bathroom suite, everything was
-                                    handled seamlessly. The craftsmanship is truly top notch — it looks like something
-                                    out of a magazine. Adnan is now our go-to contractor for all future projects.
-                                </p>
-                                <div class="t-author">
-                                    <div class="t-avatar">DC</div>
-                                    <div>
-                                        <div class="t-name">David C.</div>
-                                        <div class="t-role">Homeowner, Harborne</div>
-                                        <div class="t-property">🚿 Bathroom Renovation</div>
-                                    </div>
-                                </div>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card fade-up">
+                        <div class="t-stars">★★★★★</div>
+                        <p class="t-text">
+                            I needed an electrician urgently and within 2 hours had someone at my door. Professional,
+                            courteous, and the work was done perfectly. Would definitely use again.
+                        </p>
+                        <div class="t-author">
+                            <div class="t-avatar">JH</div>
+                            <div>
+                                <div class="t-name">James H.</div>
+                                <div class="t-role">Homeowner, Edgbaston</div>
+                                <div class="t-property">⚡ Electrical</div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="slider-controls">
-                    <button class="slider-btn" id="tPrev" aria-label="Previous">&#8592;</button>
-                    <div class="slider-dots" id="tDots"></div>
-                    <button class="slider-btn" id="tNext" aria-label="Next">&#8594;</button>
+
+                    <div class="testimonial-card fade-up">
+                        <div class="t-stars">★★★★★</div>
+                        <p class="t-text">
+                            Found a plumber through the network to fix my boiler. Quick response, competitive quote, and
+                            the work was done efficiently. Great service!
+                        </p>
+                        <div class="t-author">
+                            <div class="t-avatar">SB</div>
+                            <div>
+                                <div class="t-name">Sarah B.</div>
+                                <div class="t-role">Homeowner, Harborne</div>
+                                <div class="t-property">🔧 Plumbing</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card fade-up">
+                        <div class="t-stars">★★★★★</div>
+                        <p class="t-text">
+                            Used the network to find a painter for our whole house. The process was seamless, the quote
+                            was clear, and the finished work looks fantastic. Highly recommended!
+                        </p>
+                        <div class="t-author">
+                            <div class="t-avatar">MC</div>
+                            <div>
+                                <div class="t-name">Michael C.</div>
+                                <div class="t-role">Homeowner, Moseley</div>
+                                <div class="t-property">🎨 Decorating</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card fade-up">
+                        <div class="t-stars">★★★★★</div>
+                        <p class="t-text">
+                            Needed a builder for a kitchen extension. The vetting process gave me confidence, and the
+                            final result exceeded expectations. Transparent throughout!
+                        </p>
+                        <div class="t-author">
+                            <div class="t-avatar">LS</div>
+                            <div>
+                                <div class="t-name">Lisa S.</div>
+                                <div class="t-role">Homeowner, Solihull</div>
+                                <div class="t-property">🏗️ Building</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card fade-up">
+                        <div class="t-stars">★★★★★</div>
+                        <p class="t-text">
+                            Getting quotes usually takes forever. Through this network, I had three qualified plumbers
+                            contact me within hours. Found the perfect match!
+                        </p>
+                        <div class="t-author">
+                            <div class="t-avatar">DK</div>
+                            <div>
+                                <div class="t-name">David K.</div>
+                                <div class="t-role">Homeowner, Kings Heath</div>
+                                <div class="t-property">🔧 Plumbing</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card fade-up">
+                        <div class="t-stars">★★★★★</div>
+                        <p class="t-text">
+                            Had my driveway redone by a landscaper from the network. Professional, clean work site, and
+                            finished ahead of schedule. Best experience yet!
+                        </p>
+                        <div class="t-author">
+                            <div class="t-avatar">RW</div>
+                            <div>
+                                <div class="t-name">Rachel W.</div>
+                                <div class="t-role">Homeowner, Sutton Coldfield</div>
+                                <div class="t-property">🌿 Landscaping</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -1934,143 +3042,110 @@
         <section id="services">
             <div class="container">
                 <div class="section-head">
-                    <div class="section-label fade-left">What We Offer</div>
-                    <h2 class="section-title fade-left">Our Services</h2>
+                    <div class="section-label fade-left">All Available Trades</div>
+                    <h2 class="section-title fade-left">Complete Trade Directory</h2>
                     <p class="section-desc fade-left">
-                        From full renovations to bespoke extensions — Adnan's Property Tours covers every aspect of
-                        residential contracting in Birmingham.
+                        Explore our full network of 25+ trade categories. Each professional is vetted, insured, and
+                        rated by real clients.
                     </p>
                 </div>
-                <div class="services-arrows">
-                    <button class="slider-btn" id="sPrev" aria-label="Previous service">&#8592;</button>
-                    <button class="slider-btn" id="sNext" aria-label="Next service">&#8594;</button>
-                </div>
-                <div class="services-slider-wrapper">
-                    <div class="services-track-outer">
-                        <div class="services-track" id="servicesTrack">
-                            <div class="service-card fade-up">
-                                <div class="service-num">01</div>
-                                <span class="service-icon">🏠</span>
-                                <h3>Full Property Renovation</h3>
-                                <p>
-                                    Complete top-to-bottom transformations for residential properties of all sizes,
-                                    breathing new life into tired homes across Birmingham.
-                                </p>
-                                <div class="service-features">
-                                    <div class="service-feature">Structural & cosmetic works</div>
-                                    <div class="service-feature">Project managed end-to-end</div>
-                                    <div class="service-feature">All trades coordinated</div>
-                                </div>
-                            </div>
+                <div class="services-masonry" id="servicesMasonry">
+                    <div class="service-card fade-up">
+                        <div class="service-num">01</div>
+                        <span class="service-icon">⚡</span>
+                        <h3>Electricians</h3>
+                        <p>NICEIC certified electricians for all domestic and commercial work.</p>
+                        <div class="service-features">
+                            <div class="service-feature">Full rewires & testing</div>
+                            <div class="service-feature">Safety certificates provided</div>
+                            <div class="service-feature">Emergency callouts available</div>
+                        </div>
+                    </div>
 
-                            <div class="service-card fade-up">
-                                <div class="service-num">02</div>
-                                <span class="service-icon">🔧</span>
-                                <h3>Kitchen & Bathroom Fitting</h3>
-                                <p>
-                                    Bespoke kitchen and bathroom installations crafted to your specifications, combining
-                                    functionality with stunning modern design.
-                                </p>
-                                <div class="service-features">
-                                    <div class="service-feature">Supply & fit available</div>
-                                    <div class="service-feature">Plumbing & tiling included</div>
-                                    <div class="service-feature">Custom cabinetry options</div>
-                                </div>
-                            </div>
+                    <div class="service-card fade-up">
+                        <div class="service-num">02</div>
+                        <span class="service-icon">🔧</span>
+                        <h3>Plumbers</h3>
+                        <p>Gas Safe registered plumbers for heating, drainage and installations.</p>
+                        <div class="service-features">
+                            <div class="service-feature">Boiler installation & repair</div>
+                            <div class="service-feature">Drainage solutions</div>
+                            <div class="service-feature">24/7 emergency service</div>
+                        </div>
+                    </div>
 
-                            <div class="service-card fade-up">
-                                <div class="service-num">03</div>
-                                <span class="service-icon">🏗️</span>
-                                <h3>Extensions & Loft Conversions</h3>
-                                <p>
-                                    Maximise your property's potential with expertly designed and built extensions,
-                                    wraparounds, and loft conversions that add real value.
-                                </p>
-                                <div class="service-features">
-                                    <div class="service-feature">Planning advice included</div>
-                                    <div class="service-feature">Structural engineering</div>
-                                    <div class="service-feature">Full builds & fit-outs</div>
-                                </div>
-                            </div>
+                    <div class="service-card fade-up">
+                        <div class="service-num">03</div>
+                        <span class="service-icon">🏗️</span>
+                        <h3>Builders</h3>
+                        <p>Experienced builders for extensions, renovations and new builds.</p>
+                        <div class="service-features">
+                            <div class="service-feature">Planning advice included</div>
+                            <div class="service-feature">Full project management</div>
+                            <div class="service-feature">Structural certifications</div>
+                        </div>
+                    </div>
 
-                            <div class="service-card fade-up">
-                                <div class="service-num">04</div>
-                                <span class="service-icon">🪟</span>
-                                <h3>Windows, Doors & Roofing</h3>
-                                <p>
-                                    Upgrade your home's look, security, and energy efficiency with high-quality window,
-                                    door, and roofing installations from trusted suppliers.
-                                </p>
-                                <div class="service-features">
-                                    <div class="service-feature">uPVC, aluminium & timber</div>
-                                    <div class="service-feature">Full roof replacements</div>
-                                    <div class="service-feature">10-year guarantee available</div>
-                                </div>
-                            </div>
+                    <div class="service-card fade-up">
+                        <div class="service-num">04</div>
+                        <span class="service-icon">🎨</span>
+                        <h3>Painters & Decorators</h3>
+                        <p>Interior and exterior decorating with professional finishing.</p>
+                        <div class="service-features">
+                            <div class="service-feature">Interior & exterior painting</div>
+                            <div class="service-feature">Wallpapering & feature walls</div>
+                            <div class="service-feature">Plastering & repairs</div>
+                        </div>
+                    </div>
 
-                            <div class="service-card fade-up">
-                                <div class="service-num">05</div>
-                                <span class="service-icon">⚡</span>
-                                <h3>Electrical & Plumbing</h3>
-                                <p>
-                                    Certified electricians and plumbers on hand for everything from full rewires and
-                                    heating systems to smaller repair and maintenance jobs.
-                                </p>
-                                <div class="service-features">
-                                    <div class="service-feature">NICEIC approved</div>
-                                    <div class="service-feature">Gas Safe registered</div>
-                                    <div class="service-feature">Landlord certificates</div>
-                                </div>
-                            </div>
+                    <div class="service-card fade-up">
+                        <div class="service-num">05</div>
+                        <span class="service-icon">🪟</span>
+                        <h3>Windows & Doors</h3>
+                        <p>Installation and repair of windows, doors and conservatories.</p>
+                        <div class="service-features">
+                            <div class="service-feature">uPVC, timber & aluminium</div>
+                            <div class="service-feature">Full replacements available</div>
+                            <div class="service-feature">10-year guarantees</div>
+                        </div>
+                    </div>
 
-                            <div class="service-card fade-up">
-                                <div class="service-num">06</div>
-                                <span class="service-icon">🌿</span>
-                                <h3>Landscaping & Driveways</h3>
-                                <p>
-                                    Create beautiful, functional outdoor spaces with our landscaping, paving, decking,
-                                    and driveway services tailored to your property.
-                                </p>
-                                <div class="service-features">
-                                    <div class="service-feature">Block paving & resin</div>
-                                    <div class="service-feature">Garden design & build</div>
-                                    <div class="service-feature">Fencing & boundary walls</div>
-                                </div>
-                            </div>
+                    <div class="service-card fade-up">
+                        <div class="service-num">06</div>
+                        <span class="service-icon">🏠</span>
+                        <h3>Carpenters</h3>
+                        <p>Skilled carpenters for bespoke joinery and carpentry work.</p>
+                        <div class="service-features">
+                            <div class="service-feature">Fitted kitchens & wardrobes</div>
+                            <div class="service-feature">Flooring & skirting</div>
+                            <div class="service-feature">Bespoke joinery</div>
+                        </div>
+                    </div>
 
-                            <div class="service-card fade-up">
-                                <div class="service-num">07</div>
-                                <span class="service-icon">🎨</span>
-                                <h3>Plastering & Decorating</h3>
-                                <p>
-                                    Expert plastering, painting and decorating services delivering flawless,
-                                    professional finishes that elevate the appearance of any interior.
-                                </p>
-                                <div class="service-features">
-                                    <div class="service-feature">Skim & full plaster</div>
-                                    <div class="service-feature">Interior & exterior painting</div>
-                                    <div class="service-feature">Coving & feature walls</div>
-                                </div>
-                            </div>
+                    <div class="service-card fade-up">
+                        <div class="service-num">07</div>
+                        <span class="service-icon">🧱</span>
+                        <h3>Bricklayers</h3>
+                        <p>Professional bricklaying for new builds, repairs and pointing.</p>
+                        <div class="service-features">
+                            <div class="service-feature">New build & repairs</div>
+                            <div class="service-feature">Pointing & repointing</div>
+                            <div class="service-feature">Decorative brickwork</div>
+                        </div>
+                    </div>
 
-                            <div class="service-card fade-up">
-                                <div class="service-num">08</div>
-                                <span class="service-icon">🏢</span>
-                                <h3>Property Tours & Inspections</h3>
-                                <p>
-                                    Professional guided property tours and detailed inspection reports for buyers,
-                                    investors, and landlords — giving you total confidence before you commit.
-                                </p>
-                                <div class="service-features">
-                                    <div class="service-feature">Written inspection reports</div>
-                                    <div class="service-feature">Investment advice</div>
-                                    <div class="service-feature">Same-week availability</div>
-                                </div>
-                            </div>
+                    <div class="service-card fade-up">
+                        <div class="service-num">08</div>
+                        <span class="service-icon">🌿</span>
+                        <h3>Landscapers</h3>
+                        <p>Garden design and landscaping for stunning outdoor spaces.</p>
+                        <div class="service-features">
+                            <div class="service-feature">Garden design & build</div>
+                            <div class="service-feature">Block paving & driveways</div>
+                            <div class="service-feature">Maintenance services</div>
                         </div>
                     </div>
                 </div>
-                <div class="services-nav" id="servicesDots"></div>
             </div>
         </section>
 
@@ -2078,44 +3153,39 @@
             <div class="container">
                 <div class="section-head centered">
                     <div class="section-label">How It Works</div>
-                    <h2 class="section-title">Simple, Stress-Free Process</h2>
+                    <h2 class="section-title">Three Simple Steps</h2>
                     <p class="section-desc">
-                        Getting started with Adnan's Property Tours is straightforward — here's what to expect from
-                        first contact to final handover.
+                        From finding the right tradesperson to completion — it's quick and straightforward.
                     </p>
                 </div>
                 <div class="process-steps">
                     <div class="process-step fade-up">
                         <div class="process-num">1</div>
-                        <h4>Free Consultation</h4>
+                        <h4>Tell Us What You Need</h4>
                         <p>
-                            Get in touch and we'll arrange a free, no-obligation consultation to understand your project
-                            and goals.
+                            Describe your project, location, and budget. The more details, the better match we can find.
                         </p>
                     </div>
                     <div class="process-step fade-up">
                         <div class="process-num">2</div>
-                        <h4>Detailed Quote</h4>
+                        <h4>Get Matched Instantly</h4>
                         <p>
-                            We provide a transparent, itemised quote with no hidden costs, so you know exactly what
-                            you're getting.
+                            We connect you with vetted professionals in your area. Review their ratings and get quotes
+                            quickly.
                         </p>
                     </div>
                     <div class="process-step fade-up">
                         <div class="process-num">3</div>
-                        <h4>Project Begins</h4>
+                        <h4>Approve & Get Started</h4>
                         <p>
-                            Our skilled team gets to work on schedule, keeping your property clean, safe, and
-                            well-managed throughout.
+                            Choose your tradesperson, confirm the quote, and work can begin. We ensure complete
+                            satisfaction.
                         </p>
                     </div>
                     <div class="process-step fade-up">
                         <div class="process-num">4</div>
-                        <h4>Final Walkthrough</h4>
-                        <p>
-                            We complete a thorough walkthrough with you before sign-off, ensuring everything meets our
-                            high standards.
-                        </p>
+                        <h4>Review & Refer</h4>
+                        <p>After completion, leave a review to help others. Refer friends and earn rewards.</p>
                     </div>
                 </div>
             </div>
@@ -2143,14 +3213,14 @@
                                 <div class="contact-detail-icon">📞</div>
                                 <div class="contact-detail-text">
                                     <strong>Phone</strong>
-                                    <span>+44 121 000 0000</span>
+                                    <span>07818410320</span>
                                 </div>
                             </div>
                             <div class="contact-detail">
                                 <div class="contact-detail-icon">✉️</div>
                                 <div class="contact-detail-text">
                                     <strong>Email</strong>
-                                    <span>hello@adnanpropertytours.co.uk</span>
+                                    <span>adnanahmedmanagement@gmail.com</span>
                                 </div>
                             </div>
                             <div class="contact-detail">
@@ -2227,18 +3297,18 @@
                                     <input type="tel" id="phone" name="phone" placeholder="+44 7700 000000" />
                                 </div>
                                 <div class="form-group">
-                                    <label for="service">Service Interested In</label>
+                                    <label for="service">What Trade Do You Need?</label>
                                     <select id="service" name="service">
-                                        <option value="">Select a service...</option>
-                                        <option>Full Property Renovation</option>
-                                        <option>Kitchen &amp; Bathroom Fitting</option>
-                                        <option>Extensions &amp; Loft Conversions</option>
-                                        <option>Windows, Doors &amp; Roofing</option>
-                                        <option>Electrical &amp; Plumbing</option>
-                                        <option>Landscaping &amp; Driveways</option>
-                                        <option>Plastering &amp; Decorating</option>
-                                        <option>Property Tour &amp; Inspection</option>
-                                        <option>Other / Not Sure</option>
+                                        <option value="">Select a trade...</option>
+                                        <option>Electrician</option>
+                                        <option>Plumber</option>
+                                        <option>Builder</option>
+                                        <option>Painter & Decorator</option>
+                                        <option>Windows & Doors Specialist</option>
+                                        <option>Carpenter</option>
+                                        <option>Bricklayer</option>
+                                        <option>Landscaper</option>
+                                        <option>Other Trade</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
@@ -2336,12 +3406,17 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <span>© 2025 Adnan's Property Tours. All rights reserved. Birmingham, UK.</span>
+                <span
+                    >© <span id="currentYear">2025</span> Adnan's Property Tours. All rights reserved. Birmingham,
+                    UK.</span
+                >
                 <span>Designed with ❤️ for quality craftsmanship</span>
             </div>
         </footer>
 
         <script>
+            document.getElementById("currentYear").textContent = new Date().getFullYear();
+
             const root = document.documentElement;
             const themeBtn = document.getElementById("themeToggle");
             const stored = localStorage.getItem("apt-theme") || "light";
@@ -2365,161 +3440,6 @@
                 if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
                     mobileMenu.classList.remove("open");
                 }
-            });
-
-            const tTrack = document.getElementById("testimonialTrack");
-            const tDotsContainer = document.getElementById("tDots");
-            const tSlides = tTrack.querySelectorAll(".testimonial-slide");
-            let tCurrent = 0;
-            let tAutoplay;
-
-            tSlides.forEach((_, i) => {
-                const dot = document.createElement("div");
-                dot.className = "dot" + (i === 0 ? " active" : "");
-                dot.addEventListener("click", () => goToTestimonial(i));
-                tDotsContainer.appendChild(dot);
-            });
-
-            function updateTDots() {
-                tDotsContainer.querySelectorAll(".dot").forEach((d, i) => {
-                    d.classList.toggle("active", i === tCurrent);
-                });
-            }
-
-            function goToTestimonial(index) {
-                tCurrent = (index + tSlides.length) % tSlides.length;
-                tTrack.style.transform = `translateX(-${tCurrent * 100}%)`;
-                updateTDots();
-            }
-
-            document.getElementById("tPrev").addEventListener("click", () => {
-                goToTestimonial(tCurrent - 1);
-                resetTAutoplay();
-            });
-            document.getElementById("tNext").addEventListener("click", () => {
-                goToTestimonial(tCurrent + 1);
-                resetTAutoplay();
-            });
-
-            function startTAutoplay() {
-                tAutoplay = setInterval(() => goToTestimonial(tCurrent + 1), 5000);
-            }
-            function resetTAutoplay() {
-                clearInterval(tAutoplay);
-                startTAutoplay();
-            }
-            startTAutoplay();
-
-            let tTouchStartX = 0;
-            tTrack.addEventListener(
-                "touchstart",
-                (e) => {
-                    tTouchStartX = e.touches[0].clientX;
-                },
-                { passive: true }
-            );
-            tTrack.addEventListener(
-                "touchend",
-                (e) => {
-                    const diff = tTouchStartX - e.changedTouches[0].clientX;
-                    if (Math.abs(diff) > 50) {
-                        goToTestimonial(diff > 0 ? tCurrent + 1 : tCurrent - 1);
-                        resetTAutoplay();
-                    }
-                },
-                { passive: true }
-            );
-
-            const sTrack = document.getElementById("servicesTrack");
-            const sDotsContainer = document.getElementById("servicesDots");
-            const sCards = sTrack.querySelectorAll(".service-card");
-            let sCurrent = 0;
-            let sAutoplay;
-
-            function getVisibleCount() {
-                const w = window.innerWidth;
-                if (w <= 480) return 1;
-                if (w <= 768) return 1;
-                if (w <= 1024) return 2;
-                return 3;
-            }
-
-            function getTotalPages() {
-                return Math.ceil(sCards.length / getVisibleCount());
-            }
-
-            function buildServiceDots() {
-                sDotsContainer.innerHTML = "";
-                const pages = getTotalPages();
-                for (let i = 0; i < pages; i++) {
-                    const dot = document.createElement("div");
-                    dot.className = "services-dot" + (i === 0 ? " active" : "");
-                    dot.addEventListener("click", () => goToService(i));
-                    sDotsContainer.appendChild(dot);
-                }
-            }
-
-            function updateSDots() {
-                sDotsContainer.querySelectorAll(".services-dot").forEach((d, i) => {
-                    d.classList.toggle("active", i === sCurrent);
-                });
-            }
-
-            function goToService(index) {
-                const pages = getTotalPages();
-                sCurrent = (index + pages) % pages;
-                const visCount = getVisibleCount();
-                const cardWidth = sTrack.parentElement.offsetWidth;
-                const gap = 24;
-                const slideWidth = (cardWidth + gap) / visCount;
-                sTrack.style.transform = `translateX(-${sCurrent * visCount * slideWidth}px)`;
-                updateSDots();
-            }
-
-            document.getElementById("sPrev").addEventListener("click", () => {
-                goToService(sCurrent - 1);
-                resetSAutoplay();
-            });
-            document.getElementById("sNext").addEventListener("click", () => {
-                goToService(sCurrent + 1);
-                resetSAutoplay();
-            });
-
-            function startSAutoplay() {
-                sAutoplay = setInterval(() => goToService(sCurrent + 1), 4500);
-            }
-            function resetSAutoplay() {
-                clearInterval(sAutoplay);
-                startSAutoplay();
-            }
-
-            let sTouchStartX = 0;
-            sTrack.addEventListener(
-                "touchstart",
-                (e) => {
-                    sTouchStartX = e.touches[0].clientX;
-                },
-                { passive: true }
-            );
-            sTrack.addEventListener(
-                "touchend",
-                (e) => {
-                    const diff = sTouchStartX - e.changedTouches[0].clientX;
-                    if (Math.abs(diff) > 50) {
-                        goToService(diff > 0 ? sCurrent + 1 : sCurrent - 1);
-                        resetSAutoplay();
-                    }
-                },
-                { passive: true }
-            );
-
-            buildServiceDots();
-            startSAutoplay();
-
-            window.addEventListener("resize", () => {
-                buildServiceDots();
-                sCurrent = 0;
-                goToService(0);
             });
 
             const splash = document.getElementById("splashScreen");
@@ -2686,34 +3606,15 @@
                 },
                 { passive: true }
             );
-
-            document.addEventListener("keydown", (e) => {
-                const tSection = document.getElementById("testimonials");
-                const sSection = document.getElementById("services");
-                const tRect = tSection.getBoundingClientRect();
-                const sRect = sSection.getBoundingClientRect();
-                const inView = (rect) => rect.top < window.innerHeight && rect.bottom > 0;
-                if (e.key === "ArrowLeft") {
-                    if (inView(tRect)) {
-                        goToTestimonial(tCurrent - 1);
-                        resetTAutoplay();
-                    }
-                    if (inView(sRect)) {
-                        goToService(sCurrent - 1);
-                        resetSAutoplay();
-                    }
-                }
-                if (e.key === "ArrowRight") {
-                    if (inView(tRect)) {
-                        goToTestimonial(tCurrent + 1);
-                        resetTAutoplay();
-                    }
-                    if (inView(sRect)) {
-                        goToService(sCurrent + 1);
-                        resetSAutoplay();
-                    }
-                }
-            });
         </script>
+        <a
+            href="https://wa.me/447818410320"
+            class="whatsapp-float"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Chat on WhatsApp"
+        >
+            <span class="whatsapp-icon">💬</span>
+        </a>
     </body>
 </html>
