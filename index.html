@@ -284,10 +284,6 @@
                     background 0.2s,
                     transform 0.15s;
             }
-            .nav-cta:hover {
-                background: var(--accent-dark);
-                transform: translateY(-1px);
-            }
             .hamburger {
                 display: none;
                 flex-direction: column;
@@ -398,11 +394,6 @@
                 align-items: center;
                 gap: 8px;
             }
-            .btn-primary:hover {
-                background: var(--accent-dark);
-                transform: translateY(-2px);
-                box-shadow: 0 8px 24px rgba(200, 169, 110, 0.4);
-            }
             .btn-outline {
                 background: transparent;
                 color: #fff;
@@ -450,10 +441,6 @@
                 transition: transform 0.3s ease;
                 z-index: 1;
             }
-            .btn-primary.btn-lg:hover {
-                transform: translateY(-3px);
-                box-shadow: 0 12px 32px rgba(200, 169, 110, 0.45);
-            }
             .btn-primary.btn-lg:hover::before {
                 transform: translateX(0);
             }
@@ -463,17 +450,6 @@
                 border: 2px solid rgba(255, 255, 255, 0.6);
                 backdrop-filter: blur(10px);
                 -webkit-backdrop-filter: blur(10px);
-            }
-            .btn-outline.btn-lg:hover {
-                background: rgba(8, 8, 18, 0.65);
-                border-color: #fff;
-                transform: translateY(-3px);
-            }
-            .btn-primary:active,
-            .btn-outline:active,
-            .nav-cta:active,
-            .form-submit:active {
-                transform: scale(0.97) !important;
             }
 
             #splashScreen {
@@ -866,11 +842,7 @@
                 transition: opacity 0.35s;
                 pointer-events: none;
             }
-            .why-card-new:hover {
-                transform: translateY(-8px) scale(1.02);
-                box-shadow: 0 24px 48px rgba(0, 0, 0, 0.12);
-                border-color: var(--accent);
-            }
+
             .why-card-new:hover::before {
                 transform: scaleX(1);
             }
@@ -1092,19 +1064,7 @@
                 transition: transform 0.3s;
                 transform-origin: left;
             }
-            .trade-card::after {
-                content: "";
-                position: absolute;
-                inset: 0;
-                background: linear-gradient(135deg, rgba(200, 169, 110, 0.08), transparent);
-                opacity: 0;
-                transition: opacity 0.35s;
-            }
-            .trade-card:hover {
-                transform: translateY(-8px) scale(1.02);
-                box-shadow: 0 20px 48px rgba(0, 0, 0, 0.15);
-                border-color: var(--accent);
-            }
+
             .trade-card:hover::before {
                 transform: scaleX(1);
             }
@@ -1117,9 +1077,7 @@
                 display: block;
                 transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
             }
-            .trade-card:hover .trade-icon {
-                transform: scale(1.2) rotate(8deg);
-            }
+
             .trade-content h3 {
                 font-size: 1.25rem;
                 font-weight: 700;
@@ -1655,11 +1613,7 @@
                 justify-content: center;
                 gap: 8px;
             }
-            .form-submit:hover {
-                background: var(--accent-dark);
-                transform: translateY(-1px);
-                box-shadow: 0 6px 20px rgba(200, 169, 110, 0.35);
-            }
+
             .form-note {
                 font-family: "Figtree", system-ui, sans-serif;
                 font-size: 0.8rem;
@@ -2309,6 +2263,33 @@
             .why-card-new > * {
                 position: relative;
                 z-index: 1;
+            }
+
+            .btn-primary:hover,
+            .btn-primary.btn-lg:hover,
+            .nav-cta:hover,
+            .form-submit:hover {
+                background: var(--accent-dark);
+                transform: translateY(-2px) scale(1.02);
+                box-shadow: 0 8px 28px rgba(200, 169, 110, 0.45);
+                transition: all 0.18s cubic-bezier(0.34, 1.56, 0.64, 1);
+            }
+
+            .btn-outline.btn-lg:hover {
+                background: rgba(8, 8, 18, 0.65);
+                border-color: #fff;
+                transform: translateY(-2px) scale(1.02);
+                box-shadow: 0 8px 28px rgba(255, 255, 255, 0.1);
+                transition: all 0.18s cubic-bezier(0.34, 1.56, 0.64, 1);
+            }
+
+            .btn-primary:active,
+            .btn-outline:active,
+            .nav-cta:active,
+            .form-submit:active {
+                transform: scale(0.97) translateY(0) !important;
+                box-shadow: none !important;
+                transition: all 0.08s ease !important;
             }
         </style>
     </head>
@@ -3378,7 +3359,6 @@
                         const grayscale = Math.round(80 - proximity * 80);
                         const brightness = 0.75 + proximity * 0.45;
                         const opacity = 0.7 + proximity * 0.3;
-                        const scale = 1 + proximity * 0.12;
                         icon.style.filter = `grayscale(${Math.round(80 - proximity * 80)}%) brightness(${0.75 + proximity * 0.45}) opacity(${0.7 + proximity * 0.3})`;
                         icon.style.transition = proximity > 0.05 ? "filter 0.06s ease-out" : "filter 0.4s ease-out";
                     }
