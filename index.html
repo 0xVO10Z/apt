@@ -407,10 +407,7 @@
                 align-items: center;
                 gap: 8px;
             }
-            .btn-outline:hover {
-                background: rgba(255, 255, 255, 0.12);
-                border-color: #fff;
-            }
+
             .btn-lg {
                 padding: 16px 36px;
                 font-size: 1rem;
@@ -833,15 +830,6 @@
                 transition: transform 0.4s ease;
                 transform-origin: left;
             }
-            .why-card-new::after {
-                content: "";
-                position: absolute;
-                inset: 0;
-                background: linear-gradient(135deg, rgba(200, 169, 110, 0.05), transparent);
-                opacity: 0;
-                transition: opacity 0.35s;
-                pointer-events: none;
-            }
 
             .why-card-new:hover::before {
                 transform: scaleX(1);
@@ -1068,15 +1056,6 @@
             .trade-card:hover::before {
                 transform: scaleX(1);
             }
-            .trade-card:hover::after {
-                opacity: 1;
-            }
-            .trade-icon {
-                font-size: 2.8rem;
-                margin-bottom: 20px;
-                display: block;
-                transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
-            }
 
             .trade-content h3 {
                 font-size: 1.25rem;
@@ -1120,19 +1099,43 @@
                 border: 1.5px solid var(--border);
                 border-radius: 20px;
                 overflow: hidden;
-                transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
                 grid-column: span 6;
                 display: flex;
                 flex-direction: column;
+                position: relative;
+                transform: translateZ(0);
+                transition:
+                    transform 0.12s ease-out,
+                    border-color 0.15s ease,
+                    box-shadow 0.15s ease;
+            }
+
+            .video-card::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 2px;
+                background: linear-gradient(90deg, transparent, var(--accent), transparent);
+                opacity: 0;
+                transition: opacity 0.25s ease;
+                z-index: 2;
+            }
+
+            .video-card:hover {
+                transform: translateY(-6px) translateZ(0);
+                box-shadow: 0 20px 48px rgba(0, 0, 0, 0.15);
+                border-color: var(--accent);
+            }
+
+            .video-card:hover::before {
+                opacity: 1;
             }
             .video-featured {
                 grid-column: span 12;
             }
-            .video-card:hover {
-                transform: translateY(-6px);
-                box-shadow: 0 20px 48px rgba(0, 0, 0, 0.15);
-                border-color: var(--accent);
-            }
+
             .video-wrapper {
                 position: relative;
                 width: 100%;
@@ -1478,12 +1481,17 @@
                 transition:
                     transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
                     background 0.3s ease,
-                    color 0.3s ease;
+                    color 0.3s ease,
+                    box-shadow 0.3s ease;
             }
+
             .process-step:hover .process-num {
-                transform: scale(1.12);
+                transform: scale(1.18);
                 background: var(--accent);
                 color: #fff;
+                box-shadow:
+                    0 0 0 6px rgba(200, 169, 110, 0.15),
+                    0 0 24px rgba(200, 169, 110, 0.3);
             }
             .process-step h4 {
                 font-size: 1.05rem;
@@ -2290,6 +2298,170 @@
                 transform: scale(0.97) translateY(0) !important;
                 box-shadow: none !important;
                 transition: all 0.08s ease !important;
+            }
+
+            @keyframes gradientShift {
+                0% {
+                    background-position: 0% 50%;
+                }
+                50% {
+                    background-position: 100% 50%;
+                }
+                100% {
+                    background-position: 0% 50%;
+                }
+            }
+
+            [data-theme="light"] #why {
+                background: linear-gradient(135deg, #ffffff, #f8f7f4, #f0e6d0, #f8f7f4) !important;
+                background-size: 400% 400% !important;
+                animation: gradientShift 12s ease infinite;
+            }
+
+            [data-theme="dark"] #why {
+                background: linear-gradient(135deg, #141420, #0e0e18, #1a1a2e, #141420) !important;
+                background-size: 400% 400% !important;
+                animation: gradientShift 12s ease infinite;
+            }
+
+            [data-theme="light"] #gallery {
+                background: linear-gradient(135deg, #f8f7f4, #f0e6d0, #f8f7f4, #ffffff) !important;
+                background-size: 400% 400% !important;
+                animation: gradientShift 14s ease infinite;
+            }
+
+            [data-theme="dark"] #gallery {
+                background: linear-gradient(135deg, #0e0e18, #141420, #0e0e18, #1a1a2e) !important;
+                background-size: 400% 400% !important;
+                animation: gradientShift 14s ease infinite;
+            }
+
+            [data-theme="light"] #testimonials {
+                background: linear-gradient(135deg, #f8f7f4, #ffffff, #f0e6d0, #f8f7f4) !important;
+                background-size: 400% 400% !important;
+                animation: gradientShift 18s ease infinite;
+            }
+
+            [data-theme="dark"] #testimonials {
+                background: linear-gradient(135deg, #0e0e18, #1a1a2e, #141420, #0e0e18) !important;
+                background-size: 400% 400% !important;
+                animation: gradientShift 18s ease infinite;
+            }
+
+            [data-theme="light"] #services {
+                background: linear-gradient(135deg, #ffffff, #f8f7f4, #f0e6d0, #ffffff) !important;
+                background-size: 400% 400% !important;
+                animation: gradientShift 13s ease infinite;
+            }
+
+            [data-theme="dark"] #services {
+                background: linear-gradient(135deg, #141420, #0e0e18, #1a1a2e, #141420) !important;
+                background-size: 400% 400% !important;
+                animation: gradientShift 13s ease infinite;
+            }
+
+            [data-theme="light"] #process {
+                background: linear-gradient(135deg, #f8f7f4, #f0e6d0, #ffffff, #f8f7f4) !important;
+                background-size: 400% 400% !important;
+                animation: gradientShift 15s ease infinite;
+            }
+
+            [data-theme="dark"] #process {
+                background: linear-gradient(135deg, #0e0e18, #141420, #1a1a2e, #0e0e18) !important;
+                background-size: 400% 400% !important;
+                animation: gradientShift 15s ease infinite;
+            }
+
+            [data-theme="light"] #contact {
+                background: linear-gradient(135deg, #ffffff, #f8f7f4, #f0e6d0, #ffffff) !important;
+                background-size: 400% 400% !important;
+                animation: gradientShift 17s ease infinite;
+            }
+
+            [data-theme="dark"] #contact {
+                background: linear-gradient(135deg, #141420, #1a1a2e, #0e0e18, #141420) !important;
+                background-size: 400% 400% !important;
+                animation: gradientShift 17s ease infinite;
+            }
+
+            [data-theme="light"] footer {
+                background: linear-gradient(135deg, #ffffff, #f8f7f4, #f0e6d0, #ffffff) !important;
+                background-size: 400% 400% !important;
+                animation: gradientShift 20s ease infinite;
+            }
+
+            [data-theme="dark"] footer {
+                background: linear-gradient(135deg, #141420, #0e0e18, #1a1a2e, #141420) !important;
+                background-size: 400% 400% !important;
+                animation: gradientShift 20s ease infinite;
+            }
+
+            #why,
+            #gallery,
+            #videos,
+            #testimonials,
+            #services,
+            #process,
+            #contact {
+                position: relative;
+                isolation: isolate;
+            }
+
+            #why::after,
+            #gallery::after,
+            #videos::after,
+            #testimonials::after,
+            #services::after,
+            #process::after,
+            #contact::after {
+                content: "";
+                position: absolute;
+                inset: 0;
+                pointer-events: none;
+                z-index: 0;
+                overflow: hidden;
+            }
+
+            #why > .container,
+            #gallery > .container,
+            #videos > .container,
+            #testimonials > .container,
+            #services > .container,
+            #process > .container,
+            #contact > .container {
+                position: relative;
+                z-index: 1;
+            }
+
+            .video-card::after {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background: radial-gradient(
+                    circle at var(--v-glow-x, 50%) var(--v-glow-y, 50%),
+                    rgba(200, 169, 110, 0.07) 0%,
+                    transparent 60%
+                );
+                opacity: 0;
+                transition: opacity 0.3s ease;
+                pointer-events: none;
+                z-index: 1;
+            }
+
+            .video-card:hover::after {
+                opacity: 1;
+            }
+
+            .video-card > * {
+                position: relative;
+                z-index: 2;
+            }
+
+            .video-card.visible {
+                transition:
+                    transform 0.12s ease-out,
+                    border-color 0.15s ease,
+                    box-shadow 0.15s ease;
             }
         </style>
     </head>
@@ -3356,9 +3528,6 @@
                         const maxDist = Math.sqrt(rect.width ** 2 + rect.height ** 2) * 0.55;
                         const t = Math.max(0, 1 - dist / maxDist);
                         const proximity = t * t * t;
-                        const grayscale = Math.round(80 - proximity * 80);
-                        const brightness = 0.75 + proximity * 0.45;
-                        const opacity = 0.7 + proximity * 0.3;
                         icon.style.filter = `grayscale(${Math.round(80 - proximity * 80)}%) brightness(${0.75 + proximity * 0.45}) opacity(${0.7 + proximity * 0.3})`;
                         icon.style.transition = proximity > 0.05 ? "filter 0.06s ease-out" : "filter 0.4s ease-out";
                     }
@@ -3371,7 +3540,6 @@
                     if (icon) {
                         icon.style.transition = "filter 0.4s ease-out, transform 0.4s ease-out";
                         icon.style.filter = "";
-                        icon.style.transform = "";
                     }
                 });
 
@@ -3447,6 +3615,30 @@
                     const y = ((e.clientY - rect.top) / rect.height) * 100;
                     card.style.setProperty("--why-glow-x", `${x}%`);
                     card.style.setProperty("--why-glow-y", `${y}%`);
+                });
+            });
+
+            document.querySelectorAll(".process-step").forEach((step, index) => {
+                const num = step.querySelector(".process-num");
+
+                step.addEventListener("mouseenter", () => {
+                    num.style.transition =
+                        "transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease";
+                    num.style.boxShadow = "0 0 0 6px rgba(200, 169, 110, 0.15), 0 0 24px rgba(200, 169, 110, 0.3)";
+                });
+
+                step.addEventListener("mouseleave", () => {
+                    num.style.boxShadow = "";
+                });
+            });
+
+            document.querySelectorAll(".video-card").forEach((card) => {
+                card.addEventListener("mousemove", (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = ((e.clientX - rect.left) / rect.width) * 100;
+                    const y = ((e.clientY - rect.top) / rect.height) * 100;
+                    card.style.setProperty("--v-glow-x", `${x}%`);
+                    card.style.setProperty("--v-glow-y", `${y}%`);
                 });
             });
         </script>
